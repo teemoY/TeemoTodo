@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dividerHeight">1px</dimen>
+    <dimen name="dividerPaddingHorizontal">12dp</dimen>
+    <dimen name="paddingHorizontal">12dp</dimen>
+    <dimen name="paddingVertical">12dp</dimen>
+    <dimen name="marginHorizontal">16dp</dimen>
+    <dimen name="dividerLayoutHeight">18dp</dimen>
+    <dimen name="itemLayoutHeight">48dp</dimen>
+    <dimen name="commonIconHeight">28dp</dimen>
+
+    <dimen name="titleBarHeight">48dp</dimen>
+
+    <dimen name="itemTextSize">16dp</dimen>
+    <dimen name="hintTextSize">14dp</dimen>
+    <dimen name="marginVertical">16dp</dimen>
+</resources>

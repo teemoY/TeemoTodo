@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF2DC786</color>
+    <color name="colorPrimaryDark">#FF0D8766</color>
+    <!--<color name="colorAccent">#FF4081</color>-->
+    <color name="colorAccent">@color/colorPrimary</color>
+
+    <color name="colorPrimaryHint">#882DC786</color>
+
+    <color name="colorTintActionBar">@color/white</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="defaultInactiveColor">#FF999999</color>
+    <color name="colorDivider">#FFD9D9D9</color>
+    <color name="colorPageBackground">#EBEBEB</color>
+    <color name="colorPressed">#D9D9D9</color>
+    <color name="colorDisable">#A4A4A4</color>
+
+    <color name="colorTextDefault">#353535</color>
+    <color name="colorTextHint">#999999</color>
+    <color name="flymeOSStatusBarFontColor">#f0000000</color>
+</resources>

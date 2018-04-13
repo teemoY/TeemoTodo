@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorAccent">@color/colorPrimary</color>
+    <color name="colorDisable">#A4A4A4</color>
+    <color name="colorDivider">#FFD9D9D9</color>
+    <color name="colorPageBackground">#EBEBEB</color>
+    <color name="colorPressed">#D9D9D9</color>
+    <color name="colorPrimary">#FF2DC786</color>
+    <color name="colorPrimaryDark">#FF0D8766</color>
+    <color name="colorPrimaryHint">#882DC786</color>
+    <color name="colorTextDefault">#353535</color>
+    <color name="colorTextHint">#999999</color>
+    <color name="colorTintActionBar">@color/white</color>
+    <color name="defaultInactiveColor">#FF999999</color>
+    <color name="flymeOSStatusBarFontColor">#f0000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <dimen name="commonIconHeight">28dp</dimen>
+    <dimen name="dividerHeight">1px</dimen>
+    <dimen name="dividerLayoutHeight">18dp</dimen>
+    <dimen name="dividerPaddingHorizontal">12dp</dimen>
+    <dimen name="hintTextSize">14dp</dimen>
+    <dimen name="itemLayoutHeight">48dp</dimen>
+    <dimen name="itemTextSize">16dp</dimen>
+    <dimen name="marginHorizontal">16dp</dimen>
+    <dimen name="marginVertical">16dp</dimen>
+    <dimen name="paddingHorizontal">12dp</dimen>
+    <dimen name="paddingVertical">12dp</dimen>
+    <dimen name="titleBarHeight">48dp</dimen>
+    <integer name="length_account">30</integer>
+    <integer name="length_password">16</integer>
+    <string name="contentDescriptionDefault">图片</string>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="titleTextColor">@color/colorTintActionBar</item>
+        <item name="android:textColor">@color/colorTextDefault</item>
+        <item name="android:textColorHint">@color/colorTextHint</item>
+
+        <item name="android:textSize">@dimen/itemTextSize</item>
+        <item name="android:actionBarSize">44dp</item>
+        <item name="actionBarSize">44dp</item>
+        <item name="cardCornerRadius">4dp</item>
+        <item name="cardElevation">2dp</item>
+        <item name="cardMaxElevation">2dp</item>
+        <item name="cardPreventCornerOverlap">false</item>
+        <item name="cardUseCompatPadding">true</item>
+
+        <item name="android:textCursorDrawable">@drawable/text_cursor</item>
+
+        <item name="android:buttonStyle">@style/AppTheme.Button</item>
+        <item name="android:editTextStyle">@style/AppTheme.EditText</item>
+        <item name="android:contentDescription">@string/contentDescriptionDefault</item>
+    </style>
+    <style name="AppTheme.Button" parent="Widget.AppCompat.Button.Borderless.Colored">
+        <item name="android:colorButtonNormal">@color/colorPrimary</item>
+        <item name="android:colorPressedHighlight">@color/colorPrimaryDark</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/bg_btn_common</item>
+        <item name="android:layout_height">44dp</item>
+        <item name="android:minHeight">44dp</item>
+    </style>
+    <style name="AppTheme.EditText" parent="Widget.AppCompat.EditText">
+        <item name="android:imeOptions">actionNext|flagNoExtractUi</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:colorAccent">@color/colorPrimary</item>
+        <item name="android:textColorHighlight">@color/colorPrimary</item>
+        <item name="android:maxLines">1</item>
+    </style>
+</resources>

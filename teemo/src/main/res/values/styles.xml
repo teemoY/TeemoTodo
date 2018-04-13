@@ -1,0 +1,50 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="titleTextColor">@color/colorTintActionBar</item>
+        <item name="android:textColor">@color/colorTextDefault</item>
+        <item name="android:textColorHint">@color/colorTextHint</item>
+
+        <item name="android:textSize">@dimen/itemTextSize</item>
+        <item name="android:actionBarSize">44dp</item>
+        <item name="actionBarSize">44dp</item>
+        <item name="cardCornerRadius">4dp</item>
+        <item name="cardElevation">2dp</item>
+        <item name="cardMaxElevation">2dp</item>
+        <item name="cardPreventCornerOverlap">false</item>
+        <item name="cardUseCompatPadding">true</item>
+
+        <item name="android:textCursorDrawable">@drawable/text_cursor</item>
+
+        <item name="android:buttonStyle">@style/AppTheme.Button</item>
+        <item name="android:editTextStyle">@style/AppTheme.EditText</item>
+        <item name="android:contentDescription">@string/contentDescriptionDefault</item>
+    </style>
+
+    <style name="AppTheme.Button" parent="Widget.AppCompat.Button.Borderless.Colored">
+        <item name="android:colorButtonNormal">@color/colorPrimary</item>
+        <item name="android:colorPressedHighlight">@color/colorPrimaryDark</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/bg_btn_common</item>
+        <item name="android:layout_height">44dp</item>
+        <item name="android:minHeight">44dp</item>
+    </style>
+
+    <style name="AppTheme.EditText" parent="Widget.AppCompat.EditText">
+        <item name="android:imeOptions">actionNext|flagNoExtractUi</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:colorAccent">@color/colorPrimary</item>
+        <item name="android:textColorHighlight">@color/colorPrimary</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+</resources>
