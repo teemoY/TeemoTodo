@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">teemo</string>
+    <string name="hint_email">请输入您的邮箱</string>
+    <string name="hint_password">请输入6-16位密码</string>
+    <string name="signup_send_vcode_failed">发送验证码失败</string>
+    <string name="signup_account_format_error">邮箱格式错误</string>
+    <string name="signup_vcode_format_error">验证码格式错误</string>
+    <string name="signup_password_format_error">密码格式错误</string>
 </resources>

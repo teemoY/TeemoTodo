@@ -20,20 +20,20 @@ class ExampleInstrumentedTest {
         val appContext = InstrumentationRegistry.getTargetContext()
         Assert.assertEquals("com.teemo.todo", appContext.packageName)
 
-        TeemoHttp.with(appContext)
-                .setObservable(
-                        MobileApi.signIn(
-                                "teemo", "123456"
-                        )
-                )
-                .setShowWaitingDialog(true)
-                .subscriber(
-                        object : ApiSubscriber<Response>() {
-                            override fun onNext(t: Response) {
-                                super.onNext(t)
-                                println(t)
-                            }
-                        }
-                )
+//        TeemoHttp.with(appContext)
+//                .setObservable(
+//                        MobileApi.signIn(
+//                                "teemo", "123456"
+//                        )
+//                )
+//                .setShowWaitingDialog(true)
+//                .subscriber(
+//                        object : ApiSubscriber<Response>() {
+//                            override fun onNext(t: Response) {
+//                                super.onNext(t)
+//                                println(t)
+//                            }
+//                        }
+//                )
     }
 }

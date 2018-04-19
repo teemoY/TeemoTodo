@@ -7,5 +7,6 @@ package com.teemo.teemo.core.config
 object TeemoConfigs {
 
     val share_authen = "share_authen"
+    val is_login: String = "is_login"
 
 }

@@ -1,5 +1,6 @@
 package com.teemo.network
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.text.TextUtils
 import com.google.gson.GsonBuilder
@@ -24,26 +25,39 @@ class TeemoHttp private constructor() {
     private var observable: Flowable<*>? = null
 
     companion object {
+        @SuppressLint("StaticFieldLeak")
         private val sInstance = TeemoHttp()
         private var debugable: Boolean = false
 
-        private var sContextReference: WeakReference<Context>? = null
+        @SuppressLint("StaticFieldLeak")
+        private var sContextReference: Context? = null
 
-        private var listener:HeaderInterceptor.OnAuthenticationChangedListener? = null
+        private var listener: HeaderInterceptor.OnAuthenticationChangedListener? = null
 
         val TAG = "TeemoHttp"
 
-        fun with(context: Context): TeemoHttp {
-            this.sContextReference = WeakReference(context)
+        fun init(context: Context): TeemoHttp {
+            if (sContextReference != null) {
+                throw RuntimeException("---------------不能重复调用init---------------")
+            }
+            sContextReference = context.applicationContext
             return sInstance
         }
+
+        fun getInstance(): TeemoHttp {
+            return sInstance
+        }
+//        fun with(context: Context): TeemoHttp {
+////            this.sContextReference = WeakReference(context)
+//            return sInstance
+//        }
 
         fun debugable(debugable: Boolean): TeemoHttp {
             this.debugable = debugable
             return sInstance
         }
 
-        fun onAuthenticationChangedListener(listener:HeaderInterceptor.OnAuthenticationChangedListener?): TeemoHttp {
+        fun onAuthenticationChangedListener(listener: HeaderInterceptor.OnAuthenticationChangedListener?): TeemoHttp {
             this.listener = listener
             return sInstance
         }
@@ -108,7 +122,7 @@ class TeemoHttp private constructor() {
                 retrofitBuilder!!.baseUrl(baseUrl!!)
             }
             if (isNeedAuthentication) {
-                okHttpBuilder!!.addInterceptor(HeaderInterceptor(sContextReference!!.get()!!, listener))
+                okHttpBuilder!!.addInterceptor(HeaderInterceptor(sContextReference!!, listener))
             }
             if (isAddParameter) {
                 okHttpBuilder!!.addInterceptor(ParameterInterceptor())

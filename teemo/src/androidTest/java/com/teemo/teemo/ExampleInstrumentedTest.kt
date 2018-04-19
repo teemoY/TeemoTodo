@@ -22,25 +22,25 @@ class ExampleInstrumentedTest {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
 
-        TeemoHttp.with(appContext)
-                .setObservable(
-                        MobileApi.signIn(
-                                "teemo", "123456"
-                        )
-                )
-                .setShowWaitingDialog(true)
-                .subscriber(
-                        object : ApiSubscriber<Response>() {
-                            override fun onNext(t: Response) {
-                                super.onNext(t)
-                                println(t)
-                            }
-
-                            override fun onError(t: Throwable?) {
-                                super.onError(t)
-                                t!!.printStackTrace()
-                            }
-                        }
-                )
+//        TeemoHttp.with(appContext)
+//                .setObservable(
+//                        MobileApi.signIn(
+//                                "teemo", "123456"
+//                        )
+//                )
+//                .setShowWaitingDialog(true)
+//                .subscriber(
+//                        object : ApiSubscriber<Response>() {
+//                            override fun onNext(t: Response) {
+//                                super.onNext(t)
+//                                println(t)
+//                            }
+//
+//                            override fun onError(t: Throwable?) {
+//                                super.onError(t)
+//                                t!!.printStackTrace()
+//                            }
+//                        }
+//                )
     }
 }

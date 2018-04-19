@@ -4,9 +4,15 @@ import com.teemo.service.di.ActivityScoped
 import com.teemo.service.ui.BaseActionImpl
 import com.teemo.service.ui.IBaseConstruct
 import com.teemo.teemo.MainActivity
+import com.teemo.teemo.ui.home.HomeAction
+import com.teemo.teemo.ui.home.HomeFragment
+import com.teemo.teemo.ui.home.IHomeConstruct
 import com.teemo.teemo.ui.launcher.ILauncherConstruct
 import com.teemo.teemo.ui.launcher.LauncherAction
 import com.teemo.teemo.ui.launcher.LauncherFragment
+import com.teemo.teemo.ui.signup.ISignUpConstruct
+import com.teemo.teemo.ui.signup.SignUpAction
+import com.teemo.teemo.ui.signup.SignUpFragment
 
 import dagger.Binds
 import dagger.Module
@@ -24,16 +30,12 @@ abstract class ActivityBindingModule {
 
     @ActivityScoped
     @ContributesAndroidInjector
-    abstract fun mainActivity(): MainActivity
+    internal abstract fun mainActivity(): MainActivity
 
     @ActivityScoped
     @Binds
     abstract fun baseAction(action: BaseActionImpl): IBaseConstruct.IBaseAction<*>
 
-    //    @ActivityScoped
-    //    @ContributesAndroidInjector
-    //    abstract TestFragment testFragment();
-    //
     @ActivityScoped
     @ContributesAndroidInjector
     abstract fun launcherFragment(): LauncherFragment
@@ -42,20 +44,26 @@ abstract class ActivityBindingModule {
     @Binds
     abstract fun launcherAction(action: LauncherAction): ILauncherConstruct.Action
 
-    //    @ActivityScoped
-    //    @ContributesAndroidInjector
-    //    abstract LoginFragment loginFragment();
-    //
-    //    @ActivityScoped
-    //    @Binds
-    //    abstract ILoginConstruct.Action loginAction(LoginAction action);
-    //
-    //    @ActivityScoped
-    //    @ContributesAndroidInjector
-    //    abstract HomeFragment homeFragment();
-    //
-    //    @ActivityScoped
-    //    @Binds
-    //    abstract IHomeConstruct.Action homeAction(HomeAction action);
+    @ActivityScoped
+    @ContributesAndroidInjector
+    abstract fun signUpFragment(): SignUpFragment
+
+    @ActivityScoped
+    @Binds
+    abstract fun signUpAction(action: SignUpAction): ISignUpConstruct.Action
+
+    @ActivityScoped
+    @ContributesAndroidInjector
+    abstract fun HomeFragment(): HomeFragment
+
+    @ActivityScoped
+    @Binds
+    abstract fun HomeAction(action: HomeAction): IHomeConstruct.Action
+
+
+//    @Singleton
+//    @Binds
+//    abstract fun getUserRepository(userTask: UserRepository): UserRepository
+
 
 }
