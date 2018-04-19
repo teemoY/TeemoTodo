@@ -7,6 +7,7 @@ package com.teemo.teemo.core.di
 import android.app.Application
 
 import com.blankj.utilcode.util.SPUtils
+import com.teemo.network.TeemoHttp
 import com.teemo.service.di.ApplicationModule
 import com.teemo.service.di.UtilModule
 import com.teemo.teemo.App
@@ -19,12 +20,14 @@ import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 
 @Singleton
-@Component(modules = arrayOf(UtilModule::class, ApplicationModule::class, ActivityBindingModule::class, AndroidSupportInjectionModule::class))
+@Component(modules = arrayOf(AppUtilsModule::class, UtilModule::class, ApplicationModule::class, ActivityBindingModule::class, AndroidSupportInjectionModule::class))
 interface AppComponent : AndroidInjector<App> {
 
     val spUtils: SPUtils
 
     val isDebugMode: Boolean
+
+    val teemoHttp: TeemoHttp
 
     @Component.Builder
     interface Builder {

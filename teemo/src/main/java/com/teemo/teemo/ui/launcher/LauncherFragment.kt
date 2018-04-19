@@ -39,48 +39,48 @@ class LauncherFragment @Inject constructor() : BaseFragment<ILauncherConstruct.A
     override fun onLazyInitView(savedInstanceState: Bundle?) {
         super.onLazyInitView(savedInstanceState)
 
-        button.setOnClickListener {
-            TeemoHttp.with(activity!!)
-                    .setObservable(MobileApi.test())
-                    .setShowWaitingDialog(true)
-                    .subscriber(object : ApiSubscriber<String>() {
-                        override fun onNext(t: String) {
-                            super.onNext(t)
-                            println(t)
-                        }
-                    })
-        }
-
-
-        button2.setOnClickListener {
-            TeemoHttp.with(activity!!)
-                    .setObservable(MobileApi.userTest("teemo"))
-                    .setShowWaitingDialog(true)
-                    .subscriber(object : ApiSubscriber<User>() {
-                        override fun onNext(t: User) {
-                            super.onNext(t)
-                            println(t)
-                        }
-                    })
-        }
-
-        icon.setOnClickListener {
-            TeemoHttp.with(activity!!)
-                    .setObservable(
-                            MobileApi.signIn(
-                                    "teemo", "123456"
-                            )
-                    )
-                    .setShowWaitingDialog(true)
-                    .subscriber(
-                            object : ApiSubscriber<String>() {
-                                override fun onNext(t: String) {
-                                    super.onNext(t)
-                                    println(t)
-                                }
-                            }
-                    )
-        }
+//        button.setOnClickListener {
+//            TeemoHttp.with(activity!!)
+//                    .setObservable(MobileApi.test())
+//                    .setShowWaitingDialog(true)
+//                    .subscriber(object : ApiSubscriber<String>() {
+//                        override fun onNext(t: String) {
+//                            super.onNext(t)
+//                            println(t)
+//                        }
+//                    })
+//        }
+//
+//
+//        button2.setOnClickListener {
+//            TeemoHttp.with(activity!!)
+//                    .setObservable(MobileApi.userTest("teemo"))
+//                    .setShowWaitingDialog(true)
+//                    .subscriber(object : ApiSubscriber<User>() {
+//                        override fun onNext(t: User) {
+//                            super.onNext(t)
+//                            println(t)
+//                        }
+//                    })
+//        }
+//
+//        icon.setOnClickListener {
+//            TeemoHttp.with(activity!!)
+//                    .setObservable(
+//                            MobileApi.signIn(
+//                                    "teemo", "123456"
+//                            )
+//                    )
+//                    .setShowWaitingDialog(true)
+//                    .subscriber(
+//                            object : ApiSubscriber<String>() {
+//                                override fun onNext(t: String) {
+//                                    super.onNext(t)
+//                                    println(t)
+//                                }
+//                            }
+//                    )
+//        }
     }
 
 }

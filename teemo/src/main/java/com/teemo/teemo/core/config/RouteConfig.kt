@@ -11,5 +11,8 @@ object RouteConfig {
 //    val FRAGMENT = "/fragment"
     const val GROUP_LAUNCHER = "launcher"
     const val LAUNCHER:String = "/path/fragment/launcher"
+    const val SIGN_UP:String = "/path/fragment/signUp"
+
+    const val HOME:String = "/path/fragment/home"
 
 }

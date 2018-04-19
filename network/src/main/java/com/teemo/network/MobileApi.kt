@@ -65,6 +65,14 @@ class MobileApi : BaseApi() {
         fun userTest(account: String): Flowable<BaseResponse<User>> {
             return getObservable(getNetworkApi().userTest(), true)
         }
+
+        fun sendSignUpVCode(email:String): Flowable<BaseResponse<Void>> {
+            return getObservable(getNetworkApi().sendVCode(email), true)
+        }
+
+        fun signUp(user:User, vcode:String): Flowable<BaseResponse<User>> {
+            return getObservable(getNetworkApi().signUp(user.getAccount()!!, user.getPassword()!!, vcode))
+        }
     }
 
 }

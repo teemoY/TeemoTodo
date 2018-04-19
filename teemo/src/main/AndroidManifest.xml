@@ -41,12 +41,20 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <!--<uses-permission android:name="com.xiaomi.xmsf.permission.LOG_PROVIDER" />-->
+
+    <!--&lt;!&ndash; 这里的包名"com.xiaomi.mimcdemo"必须替换成App自己的包名 &ndash;&gt;-->
+    <!--<permission-->
+        <!--android:name="com.xiaomi.mimcdemo.permission.MIMC_RECEIVE"-->
+        <!--android:protectionLevel="signature" />-->
+    <!--<uses-permission android:name="com.xiaomi.mimcdemo.permission.MIMC_RECEIVE" />-->
 
     <application
         android:name=".App"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
+        android:testOnly="false"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -57,5 +65,44 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <service
+            android:name="com.xiaomi.mimc.MIMCService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <service
+            android:name="com.xiaomi.mimc.MIMCCoreService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":mimc"/>
+
+        <service
+            android:name="com.xiaomi.mimc.MIMCJobService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:process=":mimc" />
+
+        <receiver
+            android:name="com.xiaomi.mimc.receivers.MIMCReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.xiaomi.channel.PUSH_STARTED" />
+                <action android:name="com.xiaomi.push.service_started" />
+                <action android:name="com.xiaomi.push.channel_opened" />
+                <action android:name="com.xiaomi.push.channel_closed" />
+                <action android:name="com.xiaomi.push.new_msg" />
+                <action android:name="com.xiaomi.push.kicked" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.xiaomi.mimc.receivers.MIMCPingReceiver">
+            <intent-filter>
+                <action android:name="com.xiaomi.push.PING_TIMER" />
+            </intent-filter>
+        </receiver>
+
     </application>
 </manifest>

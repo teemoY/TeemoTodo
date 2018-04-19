@@ -2,7 +2,6 @@ package com.teemo.network
 
 import com.teemo.network.entity.User
 import io.reactivex.Flowable
-import okhttp3.Response
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
@@ -36,5 +35,13 @@ interface TeemoApi {
 
     @POST("/test/test1")
     fun test(): Flowable<String>
+
+    @FormUrlEncoded
+    @POST("/email/sendVCode")
+    fun sendVCode(@Field("email")email:String, @Field("type")type:Int = 0): Flowable<BaseResponse<Void>>
+
+    @FormUrlEncoded
+    @POST("/user/signUp")
+    fun signUp(@Field("account")account: String, @Field("password")password: String, @Field("vcode")vcode:String): Flowable<BaseResponse<User>>
 
 }

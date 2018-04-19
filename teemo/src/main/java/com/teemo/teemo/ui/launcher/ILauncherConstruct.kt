@@ -8,12 +8,8 @@ import com.teemo.service.ui.IBaseConstruct
  */
 interface ILauncherConstruct {
 
-    interface View : IBaseConstruct.IBaseFragment {
+    interface View : IBaseConstruct.IBaseFragment
 
-    }
-
-    interface Action : IBaseConstruct.IBaseAction<View> {
-
-    }
+    interface Action : IBaseConstruct.IBaseAction<View>
 
 }
