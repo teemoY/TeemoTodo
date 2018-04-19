@@ -28,7 +28,12 @@ android {
         }
     }
     signingConfigs {
-
+        teemo {
+            storeFile file('../sign/teemo.keystore')
+            storePassword 'a5263428a'
+            keyAlias 'Teemo'
+            keyPassword 'a5263428a'
+        }
     }
     buildTypes {
         release {
@@ -109,7 +114,7 @@ dependencies {
     }
     implementation 'com.classic.common:multiple-status-view:1.4'
     implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
-
     implementation project(path: ':network')
     implementation project(path: ':service')
+    implementation files('libs/mimcsdk_1_1_7.jar')
 }

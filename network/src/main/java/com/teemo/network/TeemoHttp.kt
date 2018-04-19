@@ -11,7 +11,6 @@ import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import java.lang.ref.WeakReference
 import java.lang.reflect.Modifier
 
 /**
@@ -29,6 +28,8 @@ class TeemoHttp private constructor() {
         private val sInstance = TeemoHttp()
         private var debugable: Boolean = false
 
+        private var sBaseUrl: TeemoApi.Companion.BaseUrl = TeemoApi.Companion.BaseUrl.TEEMO
+
         @SuppressLint("StaticFieldLeak")
         private var sContextReference: Context? = null
 
@@ -41,6 +42,11 @@ class TeemoHttp private constructor() {
                 throw RuntimeException("---------------不能重复调用init---------------")
             }
             sContextReference = context.applicationContext
+            return sInstance
+        }
+
+        fun baseUrl(baseUrl: TeemoApi.Companion.BaseUrl): TeemoHttp {
+            sBaseUrl = baseUrl
             return sInstance
         }
 
@@ -71,6 +77,10 @@ class TeemoHttp private constructor() {
     fun <T> setObservable(observable: Flowable<T>): TeemoHttp {
         this.observable = observable
         return this
+    }
+
+    fun <T> asObservable(): Flowable<T> {
+        return this.observable as Flowable<T>
     }
 
     fun <T> subscriber(subscriber: ApiSubscriber<T>): TeemoHttp {
@@ -117,7 +127,7 @@ class TeemoHttp private constructor() {
             retrofitBuilder = Retrofit.Builder()
             okHttpBuilder = OkHttpClient.Builder()
             if (TextUtils.isEmpty(baseUrl)) {
-                retrofitBuilder!!.baseUrl(TeemoApi.Companion.BaseUrl.LOCAL.baseUrl())
+                retrofitBuilder!!.baseUrl(sBaseUrl.baseUrl())
             } else {
                 retrofitBuilder!!.baseUrl(baseUrl!!)
             }
